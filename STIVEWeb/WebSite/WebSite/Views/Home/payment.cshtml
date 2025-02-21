@@ -1,0 +1,178 @@
+@model LibrarySTIVE.Models.CompleteOrderModel
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalisation de Commande</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Section coordonnées -->
+        <div class="section">
+            <h2>1. COORDONNÉES</h2>
+            <p>@Model.Client.Mail</p>
+        </div>
+
+        <!-- Section livraison -->
+        <div class="section">
+            <h2>2. LIVRAISON</h2>
+            <div class="row">
+                <div class="col">
+                    <h3>Adresse de livraison</h3>
+                    <p>@Model.Client.Name</p>
+                    <p>@Model.Client.Address</p>
+                    <p>@Model.Client.Postcode @Model.Client.City</p>
+                    <p>@Model.Client.Country</p>
+                </div>
+                <div class="col">
+                    <h3>Adresse de facturation</h3>
+                    <p>@Model.Client.Name</p>
+                    <p>@Model.Client.Address</p>
+                    <p>@Model.Client.Postcode @Model.Client.City</p>
+                    <p>@Model.Client.Country</p>
+                </div>
+            </div>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="shipping" checked>
+                    À domicile express (2 - 4 jours ouvrés) - 40€
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="shipping">
+                    En point relais (4 - 8 jours ouvrés) - 20€
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="shipping">
+                    En magasin (4 - 8 jours ouvrés) - Gratuit
+                </label>
+            </div>
+        </div>
+
+        <!-- Section paiement -->
+        <div class="section">
+            <h2>3. PAIEMENT</h2>
+            <div class="radio-group">
+                <label><input type="radio" name="payment"> Carte bancaire</label><br>
+                <label><input type="radio" name="payment"> PayPal</label><br>
+                <label><input type="radio" name="payment"> Paiement en 3 fois sans frais</label><br>
+                <label><input type="radio" name="payment"> Virement</label><br>
+                <label><input type="radio" name="payment"> Carte cadeau</label>
+            </div>
+        </div>
+
+        <!-- Récapitulatif -->
+        <div class="section">
+            <h2>RÉCAPITULATIF</h2>
+            <div class="summary">
+                <p>Sous-total : @Model.Article.Prix €</p>
+                <p>Livraison à domicile express : @Model.OrderSummary.ShippingFee €</p>
+                <p><strong>TOTAL : @(Model.OrderSummary.Price + Model.OrderSummary.ShippingFee) €</strong></p>
+            </div>
+            <a href="@Url.Action("BankPage", "Home", new { id = Model.Client.Id })">
+                <button class="btn">Payer ma commande</button>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
+<style>
+    /* Votre CSS existant */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f3ee;
+        color: #4a4a4a;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .section {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+        color: #a25f45;
+        margin-bottom: 15px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    .row:last-child {
+        margin-bottom: 0;
+    }
+
+    .col {
+        flex: 1;
+        margin: 0 10px;
+    }
+
+    .col h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .col p {
+        margin: 5px 0;
+    }
+
+    .radio-group input {
+        margin-right: 10px;
+    }
+
+    .radio-group {
+        margin-bottom: 10px;
+    }
+
+    .summary {
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        text-align: right;
+    }
+
+    .summary p {
+        margin: 5px 0;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 16px;
+        color: white;
+        background-color: #a25f45;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #844634;
+    }
+</style>

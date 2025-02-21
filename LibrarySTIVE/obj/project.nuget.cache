@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "L49KvF91+iA=",
+  "success": true,
+  "projectFilePath": "C:\\GitCESI\\CUBES4\\STIVE\\LibrarySTIVE\\LibrarySTIVE.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\woter\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.12\\microsoft.netcore.app.ref.8.0.12.nupkg.sha512",
+    "C:\\Users\\woter\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.12\\microsoft.windowsdesktop.app.ref.8.0.12.nupkg.sha512",
+    "C:\\Users\\woter\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.12\\microsoft.aspnetcore.app.ref.8.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}

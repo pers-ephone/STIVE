@@ -1,0 +1,78 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:STIVEClient.ViewModels"
+             x:DataType="vm:DeconnexionViewModel"
+             x:Class="STIVEClient.Views.DeconnexionView">
+
+    <Button>
+        <Border Background="Gray" Width="700" Height="100" CornerRadius="5" BorderBrush="Black" BorderThickness="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="ID" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border x:Name="Field_1" Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="NaN" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+
+                <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="Nom" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border x:Name="Field_2" Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="NaN" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+
+                <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="Famille" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border x:Name="Field_3" Grid.Column="2" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="NaN" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+
+                <Border Grid.Column="3" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="Reference" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border x:Name="Field_4" Grid.Column="3" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="NaN" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+
+                <Border Grid.Column="4" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="Prix" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border x:Name="Field_5" Grid.Column="4" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="NaN" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border Grid.Column="5" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="Age" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border x:Name="Field_6" Grid.Column="5" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="NaN" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                
+                <Border Grid.Column="6" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="Quantité" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+                <Border x:Name="Field_7" Grid.Column="6" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock Text="NaN" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Border>
+
+            </Grid>
+        </Border>
+    </Button>
+</UserControl>

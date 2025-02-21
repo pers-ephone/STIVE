@@ -1,0 +1,168 @@
+@model LibrarySTIVE.Models.CompleteOrderModel
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Commande</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-header">
+            <h1>Confirmation de commande</h1>
+        </div>
+
+        <div class="cart-details">
+            <div class="cart-item">
+                <img src="placeholder.jpg" alt="Bouteille de champagne">
+                <h3>@Model.Article.Nom</h3>
+                <p><strong>Famille :</strong> @Model.Article.Famille</p>
+                <p><strong>Référence :</strong> @Model.Article.Reference</p>
+                <p><strong>Âge :</strong> @Model.Article.Age</p>
+                <p><strong>Quantité :</strong> @Model.Article.ArtQuantity</p>
+            </div>
+
+            <div class="cart-summary">
+                <h2>Résumé de la commande</h2>
+                <p><strong>ID:</strong> @Model.OrderSummary.Id</p>
+                <p><strong>Prix de la bouteille :</strong> @Model.OrderSummary.Price €</p>
+                <p><strong>Frais de livraison estimés :</strong> @Model.OrderSummary.ShippingFee €</p>
+                <p class="total"><strong>Total :</strong> @(Model.OrderSummary.Price + Model.OrderSummary.ShippingFee) €
+                </p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn-primary" onclick="location.href='/cart/payment/@Model.OrderSummary.Id'">Finaliser la
+                commande</button>
+            <button class="btn-secondary" onclick="location.href='/'">Continuer mes achats</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<style>
+    /* Votre CSS existant */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+    }
+
+    header {
+        background-color: #f4e3d2;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    header nav a:hover {
+        text-decoration: underline;
+    }
+
+    .confirmation-container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .confirmation-header h1 {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    .cart-details {
+        display: flex;
+        flex-wrap: wrap;
+        background: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 800px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .cart-item {
+        flex: 1;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .cart-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .cart-summary {
+        flex: 1;
+        padding: 20px;
+        background-color: #f8f8f8;
+    }
+
+    .cart-summary h2 {
+        margin-top: 0;
+    }
+
+    .total {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #000;
+        margin-top: 20px;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+    }
+
+    .actions button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-primary {
+        background-color: black;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #333;
+    }
+
+    .btn-secondary {
+        background-color: #ddd;
+        color: #333;
+    }
+
+    .btn-secondary:hover {
+        background-color: #bbb;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+    }
+</style>

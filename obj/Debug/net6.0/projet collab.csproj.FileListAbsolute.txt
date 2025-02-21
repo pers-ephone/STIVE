@@ -1,0 +1,33 @@
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.csproj.AssemblyReference.cache
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.AssemblyInfoInputs.cache
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.AssemblyInfo.cs
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.csproj.CoreCompileInputs.cache
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.sourcelink.json
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\appsettings.json
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\projet collab.exe
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\projet collab.deps.json
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\projet collab.runtimeconfig.json
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\projet collab.dll
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\projet collab.pdb
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\gab\source\repos\projet collab\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\staticwebassets\msbuild.projet collab.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\staticwebassets\msbuild.build.projet collab.props
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.projet collab.props
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.projet collab.props
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\scopedcss\bundle\projet collab.styles.css
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet c.0610F044.Up2Date
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.dll
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\refint\projet collab.dll
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.pdb
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\projet collab.genruntimeconfig.cache
+C:\Users\gab\source\repos\projet collab\obj\Debug\net6.0\ref\projet collab.dll

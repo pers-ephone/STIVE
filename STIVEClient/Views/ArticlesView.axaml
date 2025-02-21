@@ -1,0 +1,223 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:STIVEClient.ViewModels"
+             x:DataType="vm:ArticlesViewModel"
+             x:Class="STIVEClient.Views.ArticlesView"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="Gray" CornerRadius="3" Width="300" Height="30" Margin="0,5,0,0">
+            <Grid>
+                <ComboBox MaxWidth="100" MinWidth="120" MinHeight="30"
+                          ItemsSource="{Binding DropdownItems}"
+                          SelectedItem="{Binding SelectedDropdownItem}"
+                          Margin="5 0 0 0" />
+                <TextBlock HorizontalAlignment="Center" Margin="50 2 0 0" FontSize="18" FontWeight="Bold">
+                    un produit
+                </TextBlock>
+            </Grid>
+        </Border>
+        <!-- ContentField 1 (Add Article)-->
+<Grid IsVisible="{Binding IsAdding}" Grid.Row="1" Background="LightGray" Margin="0 40 0 0" Width="500">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="100"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+        <RowDefinition Height="25" />
+    </Grid.RowDefinitions>
+
+    <TextBlock FontWeight="Bold" Text="Nom" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="5,0"/>
+    <TextBox Grid.Row="0" Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding NewName, UpdateSourceTrigger=PropertyChanged}"/>
+
+    <TextBlock FontWeight="Bold" Text="Famille" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="5,0"/>
+    <TextBox Grid.Row="1" Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding NewFamille, UpdateSourceTrigger=PropertyChanged}"/>
+
+    <TextBlock FontWeight="Bold" Text="Reference" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Margin="5,0"/>
+    <TextBox Grid.Row="2" Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding NewReference, UpdateSourceTrigger=PropertyChanged}"/>
+
+    <TextBlock FontWeight="Bold" Text="Prix" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Margin="5,0"/>
+    <TextBox Grid.Row="3" Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding NewPrix, UpdateSourceTrigger=PropertyChanged}"/>
+
+    <TextBlock FontWeight="Bold" Text="Age" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Margin="5,0"/>
+    <TextBox Grid.Row="4" Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding NewAge, UpdateSourceTrigger=PropertyChanged}"/>
+
+    <TextBlock FontWeight="Bold" Text="Quantité" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0" Margin="5,0"/>
+    <TextBox Grid.Row="5" Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding NewQuantite, UpdateSourceTrigger=PropertyChanged}"/>
+
+    <Button Grid.Row="6" Grid.Column="1" Width="120" Height="30" Margin="10 10 0 10" Command="{Binding AddArticleAsync}">
+        <TextBlock Text="Ajouter"/>
+    </Button>
+</Grid>
+        <!-- ContentField 1-->
+
+        <!-- ContentField 2-->
+        <Grid IsVisible="{Binding IsRecherching}"  Background="LightGray" Margin="0 40 0 0" Width="850">
+            <Grid>
+                     <Grid.ColumnDefinitions>
+                         <ColumnDefinition Width="100"></ColumnDefinition>
+                         <ColumnDefinition Width="100"></ColumnDefinition>
+                         <ColumnDefinition Width="100"></ColumnDefinition>
+                         <ColumnDefinition Width="100"></ColumnDefinition>
+                         <ColumnDefinition Width="100"></ColumnDefinition>
+                         <ColumnDefinition Width="100"></ColumnDefinition>
+                         <ColumnDefinition Width="100"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Grid.Column="0" FontWeight="Bold" Text="Id" VerticalAlignment="Center" Margin="5,0" />
+                
+                <TextBlock Grid.Row="0" Grid.Column="1" FontWeight="Bold" Text="Nom" VerticalAlignment="Center" Margin="5,0" />
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Grid.Row="0" Grid.Column="2" FontWeight="Bold" Text="Famille" VerticalAlignment="Center" Margin="5,0" />
+                <TextBox Grid.Row="1" Grid.Column="2" Margin="5" HorizontalAlignment="Stretch" Text="{Binding SearchFamille, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Grid.Row="0" Grid.Column="3" FontWeight="Bold" Text="Reference" VerticalAlignment="Center" Margin="5,0" />
+                <TextBox Grid.Row="1" Grid.Column="3" Margin="5" HorizontalAlignment="Stretch" Text="{Binding SearchReference, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Grid.Row="0" Grid.Column="4" FontWeight="Bold" Text="Prix" VerticalAlignment="Center" Margin="5,0" />
+                <TextBox Grid.Row="1" Grid.Column="4" Margin="5" HorizontalAlignment="Stretch" Text="{Binding SearchPrix, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Grid.Row="0" Grid.Column="5" FontWeight="Bold" Text="Age" VerticalAlignment="Center" Margin="5,0" />
+                <TextBox Grid.Row="1" Grid.Column="5" Margin="5" HorizontalAlignment="Stretch" Text="{Binding SearchAge, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Grid.Row="0" Grid.Column="6" FontWeight="Bold" Text="Quantité" VerticalAlignment="Center" Margin="5,0" />
+                <TextBox Grid.Row="1" Grid.Column="6" Margin="5" HorizontalAlignment="Stretch" Text="{Binding SearchQuantite, UpdateSourceTrigger=PropertyChanged}" />
+
+                <Button Command="{Binding SearchByNameAndPriceCommand}" Grid.Row="2" Grid.Column="5" Width="120" Height="30" Margin="10,10,0,10">
+                    <TextBlock Text="Rechercher"/>
+                </Button>
+                
+                <Grid>
+                    <DataGrid AutoGenerateColumns="False" GridLinesVisibility="All" Margin="10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="id"  Width="Auto" />
+                            <DataGridTextColumn Header="Nom"  Width="Auto" />
+                            <DataGridTextColumn Header="Contenance"  Width="Auto" />
+                            <DataGridTextColumn Header="Famille"  Width="Auto" />
+                            <DataGridTextColumn Header="Prix"  Width="Auto" />
+                            <DataGridTextColumn Header="Age" Width="Auto" />
+                            <DataGridTextColumn Header="Quantité"  Width="Auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+            <!-- List Of Articles-->
+            <Grid Width="850" Height="200" Margin="0,100,0,0">
+                    <ScrollViewer>
+                        <StackPanel>
+                            <ListBox ItemsSource="{Binding FilteredArticles}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Height="45" BorderThickness="1" BorderBrush="Gray" CornerRadius="5" Padding="5">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="50"/>  <!-- ID -->
+                                                    <ColumnDefinition Width="150"/> <!-- Nom -->
+                                                    <ColumnDefinition Width="100"/> <!-- Contenance -->
+                                                    <ColumnDefinition Width="100"/> <!-- Famille -->
+                                                    <ColumnDefinition Width="100"/> <!-- Reference -->
+                                                    <ColumnDefinition Width="80"/>  <!-- Prix -->
+                                                    <ColumnDefinition Width="100"/> <!-- Age -->
+                                                    <ColumnDefinition Width="80"/>  <!-- Quantity -->
+                                                    <ColumnDefinition Width="100"/> <!-- Image -->
+                                                    <ColumnDefinition Width="Auto"/> <!-- Delete Button -->
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Text="{Binding Id}" Grid.Column="0" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Nom}" Grid.Column="1" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Contenance}" Grid.Column="2" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding FamilleId}" Grid.Column="3" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Ref}" Grid.Column="4" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Prix}" Grid.Column="5" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Age}" Grid.Column="6" VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding ArtQuantity}" Grid.Column="7" VerticalAlignment="Center"/>
+                                                <Image asyncImageLoader:ImageLoader.Source="{Binding ImagePath}" Width="40" Height="40" Grid.Column="8" HorizontalAlignment="Center"/>
+                                                
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </ScrollViewer>
+            </Grid>
+            <!-- List Of Articles-->
+        </Grid>
+        <!-- ContentField 3-->
+        <Grid IsVisible="{Binding IsDeleting}" Background="LightGray" Margin="0 100 0 0" Width="850" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="Delete Article with ID:" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{Binding DeleteArticleId}" Grid.Column="1" Margin="5" Width="200"/>
+            <Button Content="Delete" Command="{Binding DeleteArticleAsync}" Grid.Column="2" Margin="5" Padding="5"/>
+        </Grid>
+        <!-- ContentField 3-->
+
+        <!-- ContentField 4-->
+        <Grid IsVisible="{Binding IsEditing}" Background="LightGray" Margin="0 100 0 0" Width="850"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="Id:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{Binding IdForUpdate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Grid.Row="0" Grid.Column="1" Margin="5" Width="200"/>
+
+            <TextBlock Text="Nom:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{Binding NomForUpdate}" Grid.Row="0" Grid.Column="1" Margin="5" Width="200"/>
+
+            <TextBlock Text="Famille:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{Binding FamilleIdForUpdate}" Grid.Row="1" Grid.Column="1" Margin="5" Width="200"/>
+
+            <TextBlock Text="Référence:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{Binding RefForUpdate}" Grid.Row="2" Grid.Column="1" Margin="5" Width="200"/>
+
+            <TextBlock Text="Prix:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{Binding PrixForUpdate}" Grid.Row="3" Grid.Column="1" Margin="5" Width="200"/>
+
+            <TextBlock Text="Quantité:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{Binding ArtQuantityForUpdate}" Grid.Row="4" Grid.Column="1" Margin="5" Width="200"/>
+
+            <Button Content="Modifier" Command="{Binding UpdateArticleAsync}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" Padding="5"/>
+        </Grid>
+        <!-- ContentField 4-->
+    </Grid>
+</UserControl>

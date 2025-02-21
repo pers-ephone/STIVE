@@ -1,0 +1,69 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:STIVEClient.ViewModels"
+        xmlns:models="using:STIVEClient.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:STIVEClient.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="STIVEClient.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Background="Black"
+        Title="STIVEClient">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <SplitView IsPaneOpen="{Binding IsPaneOpen}" OpenPaneLength="200" DisplayMode="CompactInline"
+                   CompactPaneLength="50">
+            <SplitView.Pane>
+                <StackPanel Background="#1e1e1e">
+                    <Button Command="{Binding TriggerPaneCommand}" Margin="5">
+                        <TextBlock Text="Menu" Foreground="White" />
+                    </Button>
+                    <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedListItem}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Label}" Foreground="Gray" Margin="10" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Border CornerRadius="12 0 0 0" Background="#2d2d2d">
+                    <TransitioningContentControl Content="{Binding CurrentPage}"></TransitioningContentControl>
+                </Border>
+            </SplitView.Content>
+        </SplitView>
+
+        <Grid Background="#99000000" IsVisible="{Binding IsVisibleGrid}">
+            <StackPanel TextElement.Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Width="300">
+                <TextBlock Text="Login" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,20" />
+                <StackPanel Spacing="10">
+                    <TextBox Text="{Binding LoginInput, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Text="{Binding PasswordInput, UpdateSourceTrigger=PropertyChanged}" PasswordChar="*"></TextBox>
+                </StackPanel>
+                <Button Content="Login" Command="{Binding Login}" Margin="0,20,0,0">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Background" Value="Gray" />
+                        </Style>
+                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                            <Setter Property="Background" Value="White" />
+                        </Style>
+                        <Style Selector="Button:pressed /template/ ContentPresenter">
+                            <Setter Property="Background" Value="Black" />
+                        </Style>
+                    </Button.Styles>
+                </Button>
+                <TextBlock Margin="0,10,0,0" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+</Window>

@@ -1,0 +1,140 @@
+﻿@model LibrarySTIVE.Models.ModelArticleJson
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de l'Œuvre</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+    <div class="artwork-details">
+        <div class="artwork-image">
+            <img src="placeholder.jpg" alt="Champagne">
+        </div>
+
+        <div class="artwork-info">
+            <h1>@Model.Nom</h1>
+            @if (Model != null)
+            {
+                <div class="artwork-details">
+                    <div class="artwork-info">
+                        <h1>Détails du Produit</h1>
+                        <p><strong>ID :</strong> @Model.Id</p>
+                        <p><strong>Nom :</strong> @Model.Nom</p>
+                        <p><strong>Famille :</strong> @Model.FamilleId</p>
+                        <p><strong>Référence :</strong> @Model.Ref</p>
+                        <p><strong>Âge :</strong> @Model.Age</p>
+                        <p><strong>Quantité :</strong> @Model.ArtQuantity</p>
+                        <div class="price">@Model.Prix €</div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p>Erreur : Aucune donnée disponible.</p>
+            }
+
+            <a href="@Url.Action("Cart", "Home", new { id = Model.Id })">
+                <button class="add-to-cart">Ajouter au panier</button>
+            </a>
+
+
+            <ul>
+                <!-- Vous pouvez ajouter des éléments supplémentaires ici -->
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    header {
+        background-color: #f4e3d2;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    header nav a:hover {
+        text-decoration: underline;
+    }
+
+    .artwork-details {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .artwork-image {
+        flex: 1;
+        max-width: 600px;
+    }
+
+    .artwork-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .artwork-info {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .artwork-info h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .artwork-info p {
+        margin: 5px 0;
+        color: #555;
+    }
+
+    .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        margin: 20px 0;
+    }
+
+    .add-to-cart {
+        background-color: black;
+        color: white;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .add-to-cart:hover {
+        background-color: #333;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+    }
+</style>
